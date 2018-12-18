@@ -72,7 +72,7 @@
                                 dataSource: dataSource,
                                 stretchHeight: false
                             });
-                            console.log("dataSource", dataSource)
+                        console.log("dataSource", dataSource)
 
                         //UPDAT THE TABLE WITH SELECTED VALUE FROM CHECK BOX
                             var UpdateTable = function () {
@@ -84,14 +84,17 @@
                                 });
                                
                                 var colsToRender = totalColumns.filter(function (column) {
+                                    //sconsole.log("column", column.property);
                                 return colsSelected.indexOf(column.property) !== -1;
                             });
+                            //console.log(colsSelected);
+                            //console.log(colsToRender);
                             var _grid = $('#MyGrid').data('datagrid');
                                 _grid.columns = _grid.options.dataSource._columns = colsToRender;
                                 //console.log("_grid.options.dataSource._columns",_grid.options.dataSource._columns)
-                                _grid.$colheader.empty();
-                                _grid.renderColumns();
-                                _grid.reload();
+                            _grid.$colheader.empty();
+                            _grid.renderColumns();
+                            _grid.reload();
                             }
 
                              $('#datagrid-reload').on('click', function () {
